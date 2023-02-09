@@ -6,15 +6,15 @@ from passwd import Password
 
 if __name__ == "__main__":
 
-    # super_passwd = Password("asdf1234")
+    super_passwd = Password("asdf1234")
 
-    while True:
-        try:
-            super_passwd = Password(str(input("Введите пароль: ")))
-        except ValueError:
-            print("Пароль должен содержать не менее 8 символов (буквы и цифры)")
-            continue
-        break
+    # while True:
+    #     try:
+    #         super_passwd = Password(str(input("Введите пароль: ")))
+    #     except ValueError:
+    #         print("Пароль должен содержать не менее 8 символов (буквы и цифры)")
+    #         continue
+    #     break
 
     print(super_passwd.hashed_passwd)
     print(super_passwd)

@@ -11,7 +11,13 @@ id не должен передаваться как входной аргуме
 реализуйте __str__ и __repr__ методы. Однако теперь реальный password не должен выводится на экран,
 вместо него поставим заглушку 'password1'.
 """
+from id_counter import IdCounter
+from passwd import Password
 
 
 class User:
-    pass
+
+    def __init__(self, name: str, passwd: str):
+        self._user_id = IdCounter.increment_id_count()
+        self._username = name
+        self.__passwd = Password(passwd)
