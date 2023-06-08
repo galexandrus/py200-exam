@@ -1,21 +1,17 @@
-# TODO В блоке if __name__ == '__main__' проверьте функциональность добавления продуктов в корзину
+# DONE В блоке if __name__ == '__main__' проверьте функциональность добавления продуктов в корзину
 #  и отображения корзины пользователя.
-
-from passwd import Password
+from store import Store
+from product import Product
 
 
 if __name__ == "__main__":
 
-    # super_passwd = Password("asdf1234")
-
-    while True:
-        try:
-            super_passwd = Password(str(input("Введите пароль: ")))
-        except ValueError:
-            print("Пароль должен содержать не менее 8 символов (буквы и цифры)")
-            continue
-        break
-
-    print(super_passwd.hashed_passwd)
-    print(super_passwd)
-    print(super_passwd.check_hashed_passwd("hkhjk", super_passwd.hashed_passwd))
+    my_store = Store()
+    print(my_store.store_name)
+    for _ in range(2):
+        my_store.add_random_product()
+    ceylon_tea = Product("ceylon tea", 34)
+    my_store.user.cart.add_product(ceylon_tea)
+    my_store.cart_view()
+    my_store.user.cart.del_product(ceylon_tea)
+    my_store.cart_view()
